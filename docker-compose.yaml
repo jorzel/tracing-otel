@@ -4,6 +4,17 @@ services:
     image: user-service:v1
     ports:
       - "8080:8080"
+    environment:
+      - OTEL_COLLECTOR_ENDPOINT=otel-collector:4317
+
+
+  reservations-service:
+    image: reservations-service:v1
+    ports:
+      - "8081:8081"
+    environment:
+      - OTEL_COLLECTOR_ENDPOINT=otel-collector:4317
+      - USER_SERVICE_URL=http://user-service:8080
 
   otel-collector:
     image: otel/opentelemetry-collector:latest
