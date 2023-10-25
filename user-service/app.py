@@ -14,8 +14,8 @@ resource = Resource(
     }
 )
 
-provider = TracerProvider()
-otlp_exporter = OTLPSpanExporter(endpoint="http://localhost:4317", insecure=True)
+provider = TracerProvider(resource=resource)
+otlp_exporter = OTLPSpanExporter(endpoint="otel-collector:4317", insecure=True)
 processor = BatchSpanProcessor(otlp_exporter)
 provider.add_span_processor(processor)
 

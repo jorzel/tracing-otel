@@ -4,14 +4,12 @@ receivers:
       grpc:
       http:
 exporters:
-  # NOTE: Prior to v0.86.0 use `logging` instead of `debug`.
-  debug:
-    verbosity: detailed
-processors:
-  batch:
+  otlp:
+    endpoint: tempo:4317
+    tls:
+      insecure: true
 service:
   pipelines:
     traces:
       receivers: [otlp]
-      exporters: [debug]
-      processors: [batch]
+      exporters: [otlp]
