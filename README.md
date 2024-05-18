@@ -1,3 +1,5 @@
+[Blog post](https://medium.com/devops-dev/understanding-distributed-tracing-a-python-guide-with-opentelemetry-and-grafana-tempo-1fe8407034d2)
+
 ## Overview
 Playground project that shows how to establish tracing with OpenTelemetry and Grafana Tempo in distributed system consiting of Python services. 
 
